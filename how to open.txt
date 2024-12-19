@@ -1,0 +1,71 @@
+first open the local host and craete the database name same as the env file
+
+then
+
+composer install (if composer is not install)
+
+php artisan migrate(to mirate all tables)
+php artisan serve
+
+
+
+
+If you download a Laravel project from Git, there are several steps you need to follow to set it up and run it locally. Here's a step-by-step guide:
+
+1. Download the Project
+Clone the Repository:
+Open your terminal or command prompt and run the following command to clone the repository to your local machine:
+
+git clone <repository-url>
+Replace <repository-url> with the URL of the Git repository.
+
+Navigate to the Project Directory:
+cd <project-directory>
+Replace <project-directory> with the name of the directory where the project was cloned.
+
+
+
+2. Install Dependencies
+Ensure Composer is Installed:
+Composer is required to manage PHP dependencies. If you don't have Composer installed, download and install it from getcomposer.org.
+
+Install Laravel Dependencies:
+Inside the project directory, run:
+                                                =====>composer install<=====
+This command will install all the PHP dependencies required by the Laravel project.
+
+
+
+3. Setup Environment Configuration
+Copy the .env.example file to .env:
+The .env file contains the environment configuration for your Laravel application.
+
+						=====>cp .env.example .env<=====
+
+If you are on Windows, use:
+						=====>copy .env.example .env<===== (you can manually change it by rename .env.example to only .env)
+
+Generate the Application Key:
+Laravel uses an application key for various security purposes. You need to generate this key by running:
+php artisan key:generate
+This command will set the APP_KEY value in your .env file.
+
+
+
+
+4. Configure the Database
+Open the .env file:
+           		Edit the .env file and configure your database connection settings (like DB_DATABASE, DB_USERNAME, DB_PASSWORD, etc.).
+
+Run Migrations:
+To set up the database schema, run:
+						=====>php artisan migrate<=====
+This command will create the necessary tables in your database.
+
+
+
+5. Run the Project
+Start the Development Server:
+To run your Laravel project locally, you can use the built-in PHP development server:
+						=====>php artisan serve<=====
+The project will be accessible at http://localhost:8000 by default.
