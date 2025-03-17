@@ -93,6 +93,7 @@ Route::controller(AdminController::class)->prefix('prescription')->group(functio
     Route::get('','pre_index')->name('pre_order');
     Route::get('confirm/{id}', 'pre_confirm')->name('pre_order.confirm');
     Route::get('delete/{id}', 'pre_delete')->name('pre_order.delete');
+    Route::get('download/{id}', 'pre_download')->name('pre_order.download');
 });
 
 Route::controller(AdminController::class)->prefix('userinfo')->group(function(){
