@@ -9,6 +9,7 @@ use App\Models\Prescription;
 use App\Models\User;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage; 
 use PhpParser\Node\Expr\FuncCall;
 
 class AdminController extends Controller
@@ -66,11 +67,12 @@ class AdminController extends Controller
 
     public function pre_confirm($id)
     {
+      
       $prescription=Prescription::find($id);
       $notification=new Notification();
       $notification->user_id=$prescription->user_id;
-      //$notification->product_id=$prescription->product_id;
-     // $notification->product_name=$name;
+      $notification->product_id=$prescription->id;
+      $notification->product_name=$prescription->name;
       $notification->message='pres_confirm';
       $notification->save();
       $prescription->delete();
@@ -80,15 +82,28 @@ class AdminController extends Controller
 
     public function pre_delete($id)
     {
+      
       $order=Prescription::find($id);
       $notification=new Notification();
       $notification->user_id=$order->user_id;
-      //$notification->product_id=$order->product_id;
-      //$notification->product_name=$name;
+      $notification->product_id=$order->id;
+      $notification->product_name=$order->name;
       $notification->message='pres_cancel';
       $notification->save();
       $order->delete();
         return redirect()->route('pre_order');
+    }
+
+   public function pre_download($id)
+    {
+       
+        $prescription = Prescription::findOrFail($id);
+        $filePath = storage_path('app/' . $prescription->photo); 
+        if (file_exists($filePath)) {
+            return response()->download($filePath, basename($filePath));
+        } else {
+            return redirect()->back()->with('error', 'Prescription file not found!');
+        }
     }
 
 
