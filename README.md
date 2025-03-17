@@ -33,7 +33,7 @@ Check out the **demo video** of the PharmEasy project on YouTube:
 
 ## 🏗 System Architecture  
 
-![image alt](https://github.com/utshoanik/Web-project-PharmEasy/blob/main/image.png?raw=true)
+![image alt](https://github.com/utshoanik/Web-project-PharmEasy/blob/main/Screenshot%202025-03-17%20171033.png?raw=true)
 ![image alt](https://github.com/utshoanik/Web-project-PharmEasy/blob/main/Screenshot%202025-03-17%20180432.png?raw=true)
 
 
