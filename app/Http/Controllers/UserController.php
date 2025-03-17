@@ -15,7 +15,7 @@ class UserController extends Controller
     $user = User::where(['email' => $req->email])->first();
 
     if (!$user || !Hash::check($req->password, $user->password)) {
-       //Alert::warning('Incorrect Email or Password','please enter the correct one and try again');
+        Alert::warning('Incorrect Email or Password','please enter the correct one and try again');
         return redirect()->route('login');
     }
 
@@ -30,8 +30,7 @@ class UserController extends Controller
 
 
    
-
-    function register(Request $req)
+ function register(Request $req)
     {
         $user= new User;
         $user->name=$req->name;
@@ -43,11 +42,12 @@ class UserController extends Controller
         
     }
 
-     function logout(Request $req)
-    {
-        $req->session()->forget('admin');
-        return redirect()->route('login');
-    }
+
+    function logout(Request $req)
+{
+    $req->session()->forget(['admin', 'user']); // Remove both admin & user sessions
+    return redirect()->route('login');
+}
 
 
 }
