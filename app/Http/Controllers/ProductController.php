@@ -11,6 +11,7 @@ use App\Models\User;
 use App\Models\Order;
 use App\Models\Prescription;
 use App\Models\category;
+use App\Models\Notification;
 
 use Illuminate\Support\Facades\DB;
 class ProductController extends Controller
@@ -18,7 +19,7 @@ class ProductController extends Controller
     //
     function index()
     {
-        $data= Product::all();
+        $data = Product::limit(5)->get();
         $data1=category::all();
 
        return view('product',['products'=>$data,'categories'=>$data1]);
@@ -142,4 +143,18 @@ class ProductController extends Controller
 
         return view('catProductShow',['data'=>$data]);
     }
+
+
+    public function markAllRead()
+    {
+        $userId = Session::get('user')['id']; // Get logged-in user's ID
+        
+        // Delete all notifications for the user
+        Notification::where('user_id', $userId)->delete();
+
+        // Redirect back or to the homepage with a success message
+        return redirect('/')->with('success', 'All notifications marked as read');
+    }
+
+    
 }
