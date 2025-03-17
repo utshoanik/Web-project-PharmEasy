@@ -90,7 +90,7 @@ Open **http://127.0.0.1:8000** in your browser.
 ## 📌 Contributor
 👤 Anik Kumer Das
 📧 anikdas548@gmail.com
-🔗 LinkedIn
+🔗 [LinkedIn](https://linkedin.com/in/yourprofile)  
 
 ---
 
