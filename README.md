@@ -41,6 +41,9 @@ Check out the **demo video** of the PharmEasy project on YouTube:
 
 ## 🚀 Installation & Setup
 
+### 🛠 Prerequisites
+Ensure you have XAMPP installed and running before proceeding.
+
 ### 1️⃣ Clone the Repository
 ```bash
 git clone https://github.com/yourusername/e-pharma.git
@@ -50,7 +53,6 @@ cd e-pharma
 ### 2️⃣ Install Dependencies
 ```bash
 composer install
-npm install
 ```
 
 ### 3️⃣ Set Up the Environment
