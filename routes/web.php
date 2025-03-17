@@ -57,6 +57,8 @@ Route::get("ordernow",[ProductController::class,'orderNow']);
 Route::post("orderplace",[ProductController::class,'orderPlace']);
 Route::get("myorders",[ProductController::class,'myOrders']);
 Route::post('/prescription',[ProductController::class,'prescriptionStore']);
+Route::get('/notifications/mark-all-read', [ProductController::class, 'markAllRead'])->name('notifications.markAllRead');
+
  
 Route::get('/dashboard',[AdminController::class,'home']);
 
@@ -100,11 +102,3 @@ Route::controller(AdminController::class)->prefix('userinfo')->group(function(){
     Route::get('','user_info')->name('userinfo');
     Route::get('delete/{id}', 'deleteuser')->name('user.delete');
 });
-
-
-
-
-
-
-
-
