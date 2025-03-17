@@ -84,11 +84,27 @@ if(Session::has('user'))
                 <div class="drop-content">
                   <li>
                     @if ($data->message=='Confirm')
-                  <div class="col-md-3 col-sm-3 col-xs-3"><div class="notify-img logofit"><img src="{{$img[0]->gallery}}" alt="" class="logofit"></div></div>
+                  <div class="col-md-3 col-sm-3 col-xs-3">
+    <div class="notify-img logofit">
+        @if (!empty($img) && isset($img[0]->gallery))
+            <img src="{{$img[0]->gallery}}" alt="" class="logofit">
+        @else
+            <img src="https://via.placeholder.com/100" alt="No Image Available" class="logofit">
+        @endif
+    </div>
+</div>
                   <div class="col-md-9 col-sm-9 col-xs-9 pd-l3">
                     <a href="">your product has been placed successfully</a>
                     @elseif ($data->message=='cancelled')
-                    <div class="col-md-3 col-sm-3 col-xs-3"><div class="notify-img logofit"><img src="{{$img[0]->gallery}}" alt="" class="logofit"></div></div>
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+    <div class="notify-img logofit">
+        @if (!empty($img) && isset($img[0]->gallery))
+            <img src="{{$img[0]->gallery}}" alt="" class="logofit">
+        @else
+            <img src="https://via.placeholder.com/100" alt="No Image Available" class="logofit">
+        @endif
+    </div>
+</div>
                   <div class="col-md-9 col-sm-9 col-xs-9 pd-l3">
                     <a href="">Sorry,your order has been cancelled</a>
                     @elseif ($data->message=='pres_confirm')
@@ -116,14 +132,23 @@ if(Session::has('user'))
                     @elseif ($data->message=='pres_cancel')
 
                     @else
-                    @endif --}}
+                    @endif 
 
 
 
               
               <div class="notify-drop-footer text-center">
                 <a href=""><i class="fa fa-book"></i> Mark All Read</a>
-              </div>
+              </div>--}}
+
+              <div class="notify-drop-footer text-center">
+    <form action="{{ route('notifications.markAllRead') }}" method="GET">
+        @csrf
+        <button type="submit" class="btn btn-link"><i class="fa fa-book"></i> Mark All Read</button>
+    </form>
+</div>
+
+
             </ul>
           </li>
         </ul>
