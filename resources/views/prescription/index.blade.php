@@ -7,7 +7,7 @@
 @section('contents')
   <div class="card shadow mb-4">
     <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary">Order</h6>
+      <h6 class="m-0 font-weight-bold text-primary">Prescription</h6>
     </div>
     <div class="card-body">
       {{-- <a href="{{ route('category.add') }}" class="btn btn-primary mb-3">Add Category</a> --}}
@@ -37,7 +37,8 @@
 
                 <td>
                    <a href="{{ route('pre_order.confirm', ['id'=>$row->id]) }}" class="btn btn-warning">Confirm</a>  {{-- --}}
-                  <a href="{{ route('pre_order.delete', ['id'=>$row->id]) }}" class="btn btn-danger">Delete</a>  {{-- {{ route('category.delete', $row->id) }} --}}
+                  <a href="{{ route('pre_order.delete', ['id'=>$row->id]) }}" class="btn btn-danger">Delete</a>
+                    <a href="{{ route('pre_order.download', ['id'=>$row->id]) }}" class="btn btn-warning">Download</a>{{-- {{ route('category.delete', $row->id) }} --}}
                 </td>
               </tr>
             @endforeach
